@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美园食品 - 加大集团全产业链食品品牌</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #c41230;
+            --primary-dark: #a00e28;
+            --primary-light: #e8b4bc;
+            --accent: #e67e22;
+            --dark: #1a1a1a;
+            --gray: #666;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            position: relative;
+            height: 90vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #2c1810 0%, #1a0f0a 100%);
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 6px 20px;
+            background: rgba(196, 18, 48, 0.9);
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 16px;
+            line-height: 1.2;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 32px;
+            opacity: 0.9;
+        }
+
+        .hero-desc {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 40px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(196, 18, 48, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.5);
+            margin-left: 16px;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--dark);
+            border-color: white;
+        }
+
+        /* Section Common */
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 16px;
+        }
+
+        .section-desc {
+            color: var(--gray);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Stats */
+        .stats {
+            background: var(--light-gray);
+            padding: 60px 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Chain Section */
+        .chain-flow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0;
+            margin-top: 40px;
+        }
+
+        .chain-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .chain-box {
+            width: 140px;
+            height: 140px;
+            background: white;
+            border: 2px solid var(--primary-light);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 16px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chain-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary);
+        }
+
+        .chain-box:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(196, 18, 48, 0.15);
+        }
+
+        .chain-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .chain-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--dark);
+            margin-bottom: 4px;
+        }
+
+        .chain-sub {
+            font-size: 0.75rem;
+            color: var(--gray);
+            line-height: 1.4;
+        }
+
+        .chain-arrow {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin: 0 8px;
+            font-weight: bold;
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 16px;
+        }
+
+        .feature-list li {
+            padding: 6px 0;
+            color: var(--gray);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* Products */
+        .products {
+            background: var(--light-gray);
+        }
+
+        .product-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .product-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .product-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .product-image:hover img {
+            transform: scale(1.03);
+        }
+
+        .product-info h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+
+        .product-info .highlight {
+            color: var(--primary);
+        }
+
+        .product-info p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .product-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .product-tag {
+            padding: 6px 16px;
+            background: white;
+            border: 1px solid var(--primary-light);
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+        }
+
+        .product-card-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .product-card-body {
+            padding: 24px;
+        }
+
+        .product-card-body h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        .product-card-body p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* Certificates */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 800px;
+            margin: 40px auto 0;
+        }
+
+        .cert-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: var(--transition);
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+
+        .cert-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Culture */
+        .culture {
+            background: linear-gradient(135deg, var(--dark) 0%, #2d2d2d 100%);
+            color: white;
+        }
+
+        .culture .section-title,
+        .culture .section-tag {
+            color: white;
+        }
+
+        .culture .section-desc {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .culture-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .culture-card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-5px);
+        }
+
+        .culture-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+
+        .culture-card p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: #111;
+            color: white;
+            padding: 60px 20px 30px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand .logo {
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .footer-section h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-section a,
+        .footer-section p {
+            display: block;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-light);
+        }
+
+        .qr-code {
+            width: 140px;
+            height: 140px;
+            background: white;
+            border-radius: 12px;
+            padding: 8px;
+            margin-top: 10px;
+        }
+
+        .qr-code img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 24px;
+            text-align: center;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.85rem;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .features-grid,
+            .culture-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .product-showcase {
+                grid-template-columns: 1fr;
+            }
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                gap: 16px;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .features-grid,
+            .culture-grid,
+            .product-grid,
+            .stats-grid,
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+            .chain-flow {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .chain-arrow {
+                transform: rotate(90deg);
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">美</div>
+                美园食品
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#about">集团概况</a></li>
+                <li><a href="#chain">全产业链</a></li>
+                <li><a href="#farming">养殖·饲料</a></li>
+                <li><a href="#products">美园食品</a></li>
+                <li><a href="#safety">食品安全</a></li>
+                <li><a href="#culture">企业文化</a></li>
+                <li><a href="#contact">联系我们</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <img src="图片/美园食品01.jpg" alt="美园食品" class="hero-bg">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge">加大集团 · 全资子公司</div>
+            <h1>美园食品 <span>幸福全家</span></h1>
+            <p class="hero-subtitle">从农场到餐桌的全产业链食品品牌</p>
+            <p class="hero-desc">好山好水好农场，好猪好肉自然香<br>7小时鲜肉烤肠，屠宰到加工仅7小时</p>
+            <div>
+                <a href="#products" class="btn">探索产品</a>
+                <a href="#contact" class="btn btn-outline">联系我们</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid fade-in">
+                <div class="stat-card">
+                    <div class="stat-number">200万+</div>
+                    <div class="stat-label">吨年产饲料</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100万+</div>
+                    <div class="stat-label">头年出栏生猪</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5万+</div>
+                    <div class="stat-label">吨年加工肉制品</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">8.8亿</div>
+                    <div class="stat-label">元食品总投资</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-tag">GROUP PROFILE</div>
+                <h2 class="section-title">集团概况</h2>
+                <p class="section-desc">加大集团是以高新技术为主导，集科研、饲料生产、种猪繁育、生猪屠宰、肉制品深加工于一体的现代化农牧企业。</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🏭</div>
+                    <h3>下属企业</h3>
+                    <p>12家饲料生产基地、15家养猪分公司、200家育肥场（公司+农户）、1家食品企业</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📈</div>
+                    <h3>核心产能</h3>
+                    <p>年产销饲料200多万吨；年出栏种猪及商品猪100多万头；年屠宰生猪100多万头</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🏆</div>
+                    <h3>权威资质</h3>
+                    <p>农业产业化国家重点龙头企业、国家生猪核心育种场、全国30强饲料企业</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chain -->
+    <section id="chain" style="background: var(--light-gray);">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-tag">FULL CHAIN</div>
+                <h2 class="section-title">全产业链概况</h2>
+                <p class="section-desc">从饲料到餐桌，全程可控，品质保障</p>
+            </div>
+            <div class="chain-flow fade-in">
+                <div class="chain-item">
+                    <div class="chain-box">
+                        <div class="chain-icon">🌾</div>
+                        <div class="chain-title">饲料</div>
+                        <div class="chain-sub">独家配方<br>自主知识产权</div>
+                    </div>
+                </div>
+                <div class="chain-arrow">→</div>
+                <div class="chain-item">
+                    <div class="chain-box">
+                        <div class="chain-icon">🐷</div>
+                        <div class="chain-title">种猪繁育</div>
+                        <div class="chain-sub">基因育种平台<br>蓝耳双阴</div>
+                    </div>
+                </div>
+                <div class="chain-arrow">→</div>
+                <div class="chain-item">
+                    <div class="chain-box">
+                        <div class="chain-icon">🏠</div>
+                        <div class="chain-title">养殖</div>
+                        <div class="chain-sub">美国AIRWORKS<br>智能环控</div>
+                    </div>
+                </div>
+                <div class="chain-arrow">→</div>
+                <div class="chain-item">
+                    <div class="chain-box">
+                        <div class="chain-icon">🔪</div>
+                        <div class="chain-title">屠宰</div>
+                        <div class="chain-sub">MPS生产线<br>年100万头</div>
+                    </div>
+                </div>
+                <div class="chain-arrow">→</div>
+                <div class="chain-item">
+                    <div class="chain-box">
+                        <div class="chain-icon">🥩</div>
+                        <div class="chain-title">食品深加工</div>
+                        <div class="chain-sub">五大产品体系<br>年产能2万吨</div>
+                    </div>
+                </div>
+                <div class="chain-arrow">→</div>
+                <div class="chain-item">
+                    <div class="chain-box">
+                        <div class="chain-icon">🚛</div>
+                        <div class="chain-title">冷链物流</div>
+                        <div class="chain-sub">全程冷链<br>覆盖全链条</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Farming & Feed -->
+    <section id="farming">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-tag">INDUSTRY</div>
+                <h2 class="section-title">现代养殖与饲料产业</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🐖</div>
+                    <h3>现代养殖产业</h3>
+                    <p>15家种猪分公司、1家"公司+农户"育肥服务公司，采用美国AIRWORKS工艺。</p>
+                    <ul class="feature-list">
+                        <li>垂直通风、全自动环控/饲喂</li>
+                        <li>节水零污染，自动化智能化</li>
+                        <li>与中山大学、江西农大等共建基因育种平台</li>
+                        <li>肌间脂肪高、肉质鲜美，避免PSE白肌肉</li>
+                    </ul>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🌿</div>
+                    <h3>饲料产业</h3>
+                    <p>12大基地，年产销200多万吨，领先工艺、独家配方、高品质原料。</p>
+                    <ul class="feature-list">
+                        <li>30多年经验 + 自主核心技术</li>
+                        <li>中粮、益海嘉里、ABCD四大粮商直供</li>
+                        <li>360°品控体系，成本优势显著</li>
+                        <li>全国30强饲料企业</li>
+                    </ul>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🔬</div>
+                    <h3>育种优势</h3>
+                    <p>20多年育种经验，种猪纯正、生长快、繁殖率高。</p>
+                    <ul class="feature-list">
+                        <li>基因育种平台持续创新</li>
+                        <li>筛选应激基因，保障肉质</li>
+                        <li>国内知名农牧企业多引进加大种猪</li>
+                        <li>国家生猪核心育种场认证</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products" class="products">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-tag">MEIYUAN FOOD</div>
+                <h2 class="section-title">美园食品产业</h2>
+                <p class="section-desc">总投资8.8亿元，占地200多亩，2022年8月投产，主营冷热鲜生猪白条、分割肉、猪副产品、肉制品深加工。</p>
+            </div>
+
+            <div class="product-showcase fade-in">
+                <div class="product-image">
+                    <img src="图片/美园食品02.jpg" alt="7小时鲜猪肉烤肠">
+                </div>
+                <div class="product-info">
+                    <h3><span class="highlight">7小时</span>鲜肉烤肠</h3>
+                    <p>屠宰到加工仅7小时，从农场到餐桌的极致新鲜。猪前后腿肉，肉含量＞94%，<strong>0淀粉</strong>添加。抖音多榜常年前三，获央视预制菜争霸赛新锐奖。</p>
+                    <div class="product-tags">
+                        <span class="product-tag">0淀粉</span>
+                        <span class="product-tag">肉含量>94%</span>
+                        <span class="product-tag">7小时鲜</span>
+                        <span class="product-tag">央视推荐</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-showcase fade-in" style="direction: rtl;">
+                <div class="product-image" style="direction: ltr;">
+                    <img src="图片/美园食品05.png" alt="7小时鲜礼盒">
+                </div>
+                <div class="product-info" style="direction: ltr;">
+                    <h3>金牌<span class="highlight">鲜锋系列</span></h3>
+                    <p>从屠宰到加工，7小时！金牌鲜锋系列，精选优质鲜猪肉，传承经典工艺，为家庭餐桌带来高品质肉食体验。</p>
+                    <div class="product-tags">
+                        <span class="product-tag">鲜猪肉原料</span>
+                        <span class="product-tag">拒绝冷冻肉</span>
+                        <span class="product-tag">礼盒装</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-header fade-in" style="margin-top: 80px;">
+                <div class="section-tag">PRODUCT SYSTEM</div>
+                <h2 class="section-title">五大终端产品体系</h2>
+            </div>
+            <div class="product-image fade-in" style="margin-bottom: 50px;">
+                <img src="图片/美园食品04.png" alt="五大产品体系" style="border-radius: 20px;">
+            </div>
+
+            <div class="section-header fade-in">
+                <div class="section-tag">STAR PRODUCTS</div>
+                <h2 class="section-title">明星产品</h2>
+            </div>
+            <div class="product-grid">
+                <div class="product-card fade-in">
+                    <img src="图片/美园食品06.jpg" alt="7小时鲜猪肉烤肠" class="product-card-img">
+                    <div class="product-card-body">
+                        <h4>7小时鲜猪肉烤肠</h4>
+                        <p>屠宰到加工仅7小时，后腿肉≥95%，48小时腌制，薄脆肠衣。</p>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <img src="图片/美园食品10.png" alt="爆心鱼丸" class="product-card-img">
+                    <div class="product-card-body">
+                        <h4>爆心鱼丸</h4>
+                        <p>巴沙/墨鱼外皮，后腿肉≥85.6%，淀粉≤4%，肉馅饱满细腻弹牙。</p>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <img src="图片/美园食品08.jpg" alt="肉肠兴国系列" class="product-card-img">
+                    <div class="product-card-body">
+                        <h4>肉肠兴国系列</h4>
+                        <p>后腿肉≥83.6%，整块原切，经典风味，鲜嫩多汁。</p>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <img src="图片/肉枣肠.jpg" alt="肉枣肠" class="product-card-img">
+                    <div class="product-card-body">
+                        <h4>肉枣肠</h4>
+                        <p>80g小包装，鲜嫩爆汁，方便携带，老少皆宜。</p>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <img src="图片/肥肠.jpg" alt="肥肠" class="product-card-img">
+                    <div class="product-card-body">
+                        <h4>肥肠</h4>
+                        <p>手工去油、免洗免切，可卤可炒可干锅，烹饪便捷。</p>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <img src="图片/鲜猪肉肠.jpg" alt="鲜猪肉肠" class="product-card-img">
+                    <div class="product-card-body">
+                        <h4>鲜猪肉肠</h4>
+                        <p>后腿肉≥95%，48小时腌制，薄脆肠衣，口感细腻。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="features-grid" style="margin-top: 60px;">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🏭</div>
+                    <h3>屠宰与分割</h3>
+                    <p>年屠宰100万头，日均3000头。车间2.4万㎡，5000吨冷藏库、250吨速冻库、日均3000头排酸库。</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>肉制品深加工</h3>
+                    <p>年产能5万多吨，车间1万+㎡。关键控制点：真空度、计量、加热。设备总投5000万元。</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🏅</div>
+                    <h3>品牌荣誉</h3>
+                    <p>2023年4月入选全国首届乡村振兴品牌。抖音多榜常年前三，获央视预制菜争霸赛新锐奖。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Safety -->
+    <section id="safety">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-tag">FOOD SAFETY</div>
+                <h2 class="section-title">食品安全体系</h2>
+                <p class="section-desc">全流程危害分析与关键控制点，全程检验检疫，信息化在线采集，全程可追溯。</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📋</div>
+                    <h3>基础认证</h3>
+                    <p>HACCP危害分析与关键控制点体系、ISO9001质量管理体系，构建完善的食品安全管理框架。</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🌍</div>
+                    <h3>国际标准</h3>
+                    <p>BRCGS全球食品安全标准A级认证（英国零售商协会），达到国际一流食品安全水准。</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🔍</div>
+                    <h3>全程管控</h3>
+                    <p>全流程危害分析、全程检验检疫、信息化在线采集、全程可追溯，确保每一个环节安全可靠。</p>
+                </div>
+            </div>
+            <div class="cert-grid fade-in">
+                <div class="cert-card">
+                    <img src="图片/证书01.jpg" alt="食品安全管理体系认证证书">
+                </div>
+                <div class="cert-card">
+                    <img src="图片/证书02.jpg" alt="认证证书">
+                </div>
+            </div>
+
+            <div class="section-header fade-in" style="margin-top: 60px;">
+                <div class="section-tag">QUALITY</div>
+                <h2 class="section-title">全产业链品质保障</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🌾</div>
+                    <h3>原料端</h3>
+                    <p>自繁自养，加大饲料，全程可追溯。从源头把控品质，确保每一份原料安全放心。</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🏭</div>
+                    <h3>生产端</h3>
+                    <p>进口生产线 + 国际体系 + 全程质检。引进国外MPS生产线，关键控制点严格把关。</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🥩</div>
+                    <h3>产品端</h3>
+                    <p>以"鲜"立品，7小时鲜肉肠为标杆。屠宰到加工仅7小时，拒绝冷冻肉/杂碎肉。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture -->
+    <section id="culture" class="culture">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-tag">CULTURE</div>
+                <h2 class="section-title">企业文化</h2>
+                <p class="section-desc">用心做好每件小事，为养殖户谋利，为消费者造福</p>
+            </div>
+            <div class="culture-grid">
+                <div class="culture-card fade-in">
+                    <h4>企业精神</h4>
+                    <p>诚正、勤奋、创新、一流</p>
+                </div>
+                <div class="culture-card fade-in">
+                    <h4>企业宗旨</h4>
+                    <p>提高生活水平，推动社会进步</p>
+                </div>
+                <div class="culture-card fade-in">
+                    <h4>人才观</h4>
+                    <p>尊重、善良、仁爱、好学、感恩合作</p>
+                </div>
+                <div class="culture-card fade-in">
+                    <h4>管理观</h4>
+                    <p>信任员工、服务客户、业精于专、提质增效</p>
+                </div>
+                <div class="culture-card fade-in">
+                    <h4>行动方针</h4>
+                    <p>行动快、执行坚、化繁为简、品质至上</p>
+                </div>
+                <div class="culture-card fade-in">
+                    <h4>座右铭</h4>
+                    <p>用心做好每件小事</p>
+                </div>
+                <div class="culture-card fade-in">
+                    <h4>企业使命</h4>
+                    <p>为养殖户谋利，为消费者造福</p>
+                </div>
+                <div class="culture-card fade-in">
+                    <h4>企业愿景</h4>
+                    <p>打造全产业链食品领导品牌</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <div class="logo-icon">美</div>
+                    美园食品
+                </div>
+                <p>加大集团全资子公司，总投资8.8亿元，占地200多亩。主营冷热鲜生猪白条、分割肉、猪副产品、肉制品深加工。</p>
+                <p style="color: var(--primary-light);">好山好水好农场，好猪好肉自然香</p>
+            </div>
+            <div class="footer-section">
+                <h4>快速导航</h4>
+                <a href="#about">集团概况</a>
+                <a href="#chain">全产业链</a>
+                <a href="#products">美园食品</a>
+                <a href="#safety">食品安全</a>
+                <a href="#culture">企业文化</a>
+            </div>
+            <div class="footer-section">
+                <h4>联系方式</h4>
+                <p>📧 邮箱：guojiafu1107@outlook.com</p>
+                <p>📍 江西赣州</p>
+                <div class="qr-code">
+                    <img src="图片/联系微信二维码.jpg" alt="微信二维码">
+                </div>
+                <p style="font-size: 0.8rem; margin-top: 8px;">扫码添加微信</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 江西美园食品有限公司 版权所有 | 加大集团全资子公司</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
+        // Scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.12)';
+            } else {
+                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.08)';
+            }
+        });
+    </script>
+</body>
+</html>
